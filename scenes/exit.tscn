@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/exitlvl1.gd" type="Script" id=1]
+[ext_resource path="res://sprites/porta clone-1.png.png" type="Texture" id=2]
+[ext_resource path="res://scenes/dooropening_audio.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.1744, 32.2198 )
+
+[node name="exit" type="Area2D"]
+position = Vector2( -0.804863, 0.706748 )
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="spriteexit" type="Sprite" parent="."]
+position = Vector2( -0.300842, -1.54537 )
+texture = ExtResource( 2 )
+
+[node name="collisionexit" type="CollisionShape2D" parent="."]
+position = Vector2( -0.658844, -1.22501 )
+shape = SubResource( 1 )
+
+[node name="dooropening_audio" parent="." instance=ExtResource( 3 )]
+volume_db = 4.288
+
+[connection signal="body_entered" from="." to="." method="_on_exit_body_entered"]

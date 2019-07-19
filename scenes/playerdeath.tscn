@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/Explosion 2 clone-1-white.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Explosion 2 clone-2-white.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Explosion 2 clone-3-white.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Explosion 2 clone-4-white.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Explosion 2 clone-5-white.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 4.0
+} ]
+
+[node name="deathanimation" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "New Anim"
+frame = 1
+playing = true
+

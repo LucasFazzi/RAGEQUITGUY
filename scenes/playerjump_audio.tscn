@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sfx/Jump3.ogg" type="AudioStream" id=1]
+
+[node name="playerjump_audio" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+

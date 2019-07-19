@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/enemyrightandleft.gd" type="Script" id=1]
+[ext_resource path="res://sprites/enemy ballon-1.png.png" type="Texture" id=2]
+[ext_resource path="res://sprites/enemy ballon-2.png.png" type="Texture" id=3]
+[ext_resource path="res://scenes/monsterstep2_audio.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.5
+} ]
+
+[node name="enemyleftandright" type="KinematicBody2D"]
+modulate = Color( 1, 0.0705882, 0.635294, 1 )
+collision_layer = 8
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="enemyleftandrightsprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="enemyleftandright_RayCastleftshort" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -40, 0 )
+collision_mask = 14
+collide_with_areas = true
+
+[node name="enemyleftandright_RayCastrightshort" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 40, 0 )
+collision_mask = 14
+collide_with_areas = true
+
+[node name="enemyleftadnrightcollision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -11.4943, -29.634, -32.8025, -12.7811, -32.4151, -7.55094, -29.5094, -6.58239, -32.9962, -2.12704, -32.4151, 1.94089, -29.122, 5.8151, -33.9648, 9.10818, -33.1899, 13.5635, -29.7031, 16.8566, -34.3522, 21.312, -32.4151, 25.3799, -21.5673, 29.6415, -8.9761, 25.5736, -2.38993, 32.3535, 2.64655, 32.3535, 9.62013, 24.4113, 12.9132, 27.8981, 29.1849, 28.0918, 34.4151, 21.6994, 28.9912, 16.6629, 33.834, 13.3698, 33.834, 10.4642, 28.6038, 6.20252, 34.4151, 0.972332, 34.8025, -2.32075, 28.6038, -5.61383, 33.6403, -9.10062, 32.6717, -14.3308, 11.3635, -30.0214 )
+
+[node name="monsterstep2_audio" parent="." instance=ExtResource( 4 )]
+
