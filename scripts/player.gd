@@ -13,6 +13,7 @@ var player_life = 100
 var move_dir_global
 var hit_down = false
 var hit_up = false
+var hit_up_max = false
 var hit_left = false
 var hit_right = false
 
@@ -140,3 +141,4 @@ func check_game_over():
 func _on_player_death_check():
 	get_node("/root/Global").death_player_global += 1
 	get_node("/root/Global").points += 100
+
