@@ -35,52 +35,52 @@ script = ExtResource( 5 )
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 15.9014, -377.145 )
 scale = Vector2( 2, 2 )
+frame = 0
 
 [node name="torch_scenario3" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 192.708, -537.651 )
 scale = Vector2( 2, 2 )
-frame = 1
 
 [node name="torch_scenario4" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 13.2958, -697.668 )
 scale = Vector2( 2, 2 )
-frame = 1
 
 [node name="torch_scenario5" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 193.885, -889.225 )
 scale = Vector2( 2, 2 )
-frame = 1
 
 [node name="torch_scenario6" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 12.6771, -1082.24 )
 scale = Vector2( 2, 2 )
-frame = 0
+frame = 1
 
 [node name="torch_scenario9" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 1054.37, -378.656 )
 scale = Vector2( 2, 2 )
+frame = 0
 
 [node name="torch_scenario10" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 1344.16, -378.087 )
 scale = Vector2( 2, 2 )
+frame = 0
 
 [node name="torch_scenario7" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 992.224, -1401.04 )
 scale = Vector2( 2, 2 )
-frame = 0
+frame = 1
 
 [node name="torch_scenario8" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.192157, 0.196078, 0.192157, 1 )
 position = Vector2( 1098.58, -1402.27 )
 scale = Vector2( 2, 2 )
-frame = 0
+frame = 1
 
 [node name="tileset_walls" parent="." instance=ExtResource( 7 )]
 modulate = Color( 0.192157, 0.435294, 0.0235294, 1 )
@@ -333,4 +333,3 @@ position = Vector2( 1034.5, -623.307 )
 
 [node name="enemydiagonal2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1251.01, -552.817 )
-

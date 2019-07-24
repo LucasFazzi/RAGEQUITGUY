@@ -46,5 +46,4 @@ margin_right = 974.196
 margin_bottom = 1081.42
 custom_fonts/normal_font = SubResource( 4 )
 text = "press START"
-
 [connection signal="start" from="." to="." method="_on_startscenenode_start"]

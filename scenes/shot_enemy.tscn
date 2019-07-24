@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/shot_enemy.gd" type="Script" id=1]
+[ext_resource path="res://sprites/spikes-1.png.png" type="Texture" id=2]
+
+[node name="shot_enemy" type="KinematicBody2D"]
+modulate = Color( 0.0901961, 0.603922, 0, 1 )
+collision_layer = 32
+collision_mask = 5
+script = ExtResource( 1 )
+
+[node name="shot_enemy_sprite" type="Sprite" parent="."]
+rotation = -3.14159
+scale = Vector2( 0.2, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="shot_enemy_collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -6.74734, -9.91621, -6.74734, -1.17628, -0.853085, 9.60007, 0.516287, 9.65961, 6.70823, -1.17628, 6.70823, -9.91621 )
+
+[node name="player_scenario_invade" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="plyaer_scenario_collision" type="CollisionPolygon2D" parent="player_scenario_invade"]
+polygon = PoolVector2Array( -7.28318, -10.4521, 7.18453, -10.4521, 7.06545, -1.16414, 0.813976, 10.0885, -1.15077, 10.0885, -7.22364, -1.16414 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -0.593731 )
+scale = Vector2( 1, 1.17812 )
+[connection signal="body_entered" from="player_scenario_invade" to="." method="_on_player_scenario_invade_body_entered"]
