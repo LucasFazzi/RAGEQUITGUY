@@ -9,6 +9,7 @@ var MOVE_SPEED_RIGHT_MAX
 var MOVE_SPEED_LEFT_MAX 
 var MOVE_SPEED_UP_MAX
 var MOVE_SPEED_DOWN_MAX
+var MOVE_SPEED_ZERO = 0
 
 var raycastleftshort = false
 var raycastrightshort = false
@@ -42,6 +43,12 @@ func _ready():
 
 
 func _physics_process(delta):
+	if not $VisibilityNotifier2D.is_on_screen():
+		VELOCITY.x = MOVE_SPEED_ZERO
+		VELOCITY.y = MOVE_SPEED_ZERO
+	else:
+		pass
+
 	if $enemydiagonal_raycastright.is_colliding():
 		raycastrightshort = true
 		raycastleftshort = false

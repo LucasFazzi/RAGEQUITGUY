@@ -4,6 +4,7 @@ var shuffle_up = range (100,200)
 var shuffle_down = range (-200,-100)
 var MOVE_SPEED_UP_MAX 
 var MOVE_SPEED_DOWN_MAX 
+var MOVE_SPEED_ZERO = 0
 var raycastupshort = false
 var raycastdownshort = false
 var VELOCITY = Vector2()
@@ -25,6 +26,11 @@ func _ready():
 			raycastdownshort = true
 
 func _physics_process(delta):
+	if not $VisibilityNotifier2D.is_on_screen():
+		VELOCITY.y = MOVE_SPEED_ZERO
+	else:
+		pass
+
 	if $enemeyupanddownraycast_down.is_colliding():
 		raycastupshort = true
 		raycastdownshort = false
