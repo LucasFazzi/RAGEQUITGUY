@@ -10,10 +10,9 @@ var START_POS
 var death_check_counter = false
 var y_velo = 0
 var player_life = 100
-var move_dir_global
 var hit_down = false
+var hit_down_total = false
 var hit_up = false
-var hit_up_max = false
 var hit_left = false
 var hit_right = false
 
@@ -26,7 +25,6 @@ func _ready():
 func _physics_process(delta):
 	check_game_over()
 	var move_dir = 0
-	move_dir_global = move_dir
 
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
@@ -110,6 +108,17 @@ func _on_playerhitup_death_up():
 		player_life -= 35
 		hit_up = false
 
+func _on_playerhitdown_death():
+	hit_down_total = true
+	if hit_down_total == true:
+		if $playerjump_audio.is_playing():
+			$playerjump_audio.stop()
+		if not $hit_player.is_playing():
+			$hit_player.play()
+		$hit_modulate.play("hit_modulate")
+		player_life -= 101
+		hit_down = false
+
 func check_game_over():
 	if player_life >= 0:
 		pass
@@ -138,7 +147,9 @@ func check_game_over():
 			emit_signal("death_check")
 			death_check_counter = false
 
+
 func _on_player_death_check():
 	get_node("/root/Global").death_player_global += 1
 	get_node("/root/Global").points += 100
+
 

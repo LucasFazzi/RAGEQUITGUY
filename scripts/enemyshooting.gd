@@ -61,7 +61,7 @@ func check_fire():
 	yield(waiting_timer, "timeout")
 	var shot = preload("res://scenes/shot_enemy.tscn").instance()
 	shot.position = $".".position
-	get_parent().add_child(shot)
+	get_parent().call_deferred("add_child",shot)
 	shot.call_deferred("show")
 	pass
 
