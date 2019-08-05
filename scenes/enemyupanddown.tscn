@@ -15,22 +15,25 @@ animations = [ {
 [node name="enemyupanddown" type="KinematicBody2D"]
 modulate = Color( 0.85098, 0.8, 0.00784314, 1 )
 collision_layer = 8
-collision_mask = 4
+collision_mask = 84
 script = ExtResource( 1 )
 
 [node name="enemyupanddownsprites" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="enemeyupanddownraycast_down" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 40 )
-collision_mask = 14
+collision_mask = 94
+collide_with_areas = true
 
 [node name="enemyupanddownraycast_up" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, -40 )
-collision_mask = 14
+collision_mask = 94
+collide_with_areas = true
 
 [node name="enemyupanddowncollision" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -14.3057, -28.7497, -34.0642, -12.478, -31.9334, -7.63527, -29.0277, -5.69817, -33.2893, -0.855404, -32.3208, 2.82509, -28.2529, 6.31188, -33.4831, 9.99239, -32.7082, 13.4792, -28.6403, 16.1911, -32.9019, 21.615, -31.546, 25.2955, -25.7346, 28.0075, -12.9497, 27.8138, -9.07554, 24.9081, -3.45793, 32.6565, 2.35338, 33.0439, 9.71438, 24.327, 13.5886, 28.0075, 26.7609, 28.0075, 34.1219, 23.3584, 32.9596, 18.5156, 28.5043, 16.5785, 33.9282, 13.0918, 33.5408, 9.79868, 27.7295, 6.11817, 34.3156, 1.85654, 33.7345, -2.5988, 28.3106, -6.2793, 33.9282, -10.5409, 33.5408, -14.2214, 13.5886, -29.1371, 7.00243, -31.268, -7.13844, -31.268 )

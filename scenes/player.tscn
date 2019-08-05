@@ -6,10 +6,10 @@
 [ext_resource path="res://sprites/Explosion 2 clone-3-white.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Explosion 2 clone-4-white.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Explosion 2 clone-5-white.png" type="Texture" id=6]
-[ext_resource path="res://sprites/balloon bob right-1.png.png" type="Texture" id=7]
-[ext_resource path="res://sprites/balloon bob right-2.png.png" type="Texture" id=8]
-[ext_resource path="res://sprites/balloon bob left-1.png.png" type="Texture" id=9]
-[ext_resource path="res://sprites/balloon bob left-2.png.png" type="Texture" id=10]
+[ext_resource path="res://sprites/balloon bob left-1.png.png" type="Texture" id=7]
+[ext_resource path="res://sprites/balloon bob left-2.png.png" type="Texture" id=8]
+[ext_resource path="res://sprites/balloon bob right-1.png.png" type="Texture" id=9]
+[ext_resource path="res://sprites/balloon bob right-2.png.png" type="Texture" id=10]
 [ext_resource path="res://sprites/balloon bob front-1.png.png" type="Texture" id=11]
 [ext_resource path="res://sprites/balloon bob front-2.png.png" type="Texture" id=12]
 [ext_resource path="res://scripts/playerhit.gd" type="Script" id=13]
@@ -31,12 +31,12 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
@@ -84,7 +84,6 @@ script = ExtResource( 1 )
 [node name="deathanimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "death"
-frame = 1
 playing = true
 
 [node name="spriteplayer" type="AnimatedSprite" parent="."]
@@ -110,7 +109,7 @@ cast_to = Vector2( 32, 0 )
 collision_mask = 8
 
 [node name="playerhitdown" type="Area2D" parent="."]
-collision_mask = 8
+collision_mask = 72
 script = ExtResource( 13 )
 
 [node name="collisionhitplayerdown" type="CollisionPolygon2D" parent="playerhitdown"]
@@ -140,7 +139,9 @@ polygon = PoolVector2Array( -20.448, -13.1352, 22.3623, -13.1352, 31.8542, -3.44
 anims/blank_gameover = SubResource( 3 )
 anims/hit_modulate = SubResource( 4 )
 [connection signal="death_check" from="." to="." method="_on_player_death_check"]
+[connection signal="area_entered" from="playerhitdown" to="playerhitdown" method="_on_playerhitdown_area_entered"]
 [connection signal="body_entered" from="playerhitdown" to="playerhitdown" method="_on_playerhitdown_body_entered"]
+[connection signal="death" from="playerhitdown" to="." method="_on_playerhitdown_death"]
 [connection signal="death_down" from="playerhitdown" to="." method="_on_playerhitdown_death_down"]
 [connection signal="body_entered" from="playerhitup" to="playerhitup" method="_on_playerhitup_body_entered"]
 [connection signal="death_up" from="playerhitup" to="." method="_on_playerhitup_death_up"]

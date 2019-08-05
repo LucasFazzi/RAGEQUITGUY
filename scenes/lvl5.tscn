@@ -216,4 +216,3 @@ position = Vector2( 0.224274, 18.8784 )
 
 [node name="spikeenemy15" parent="." instance=ExtResource( 10 )]
 position = Vector2( 385.36, 18.6689 )
-
